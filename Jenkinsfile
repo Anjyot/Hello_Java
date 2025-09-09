@@ -2,9 +2,12 @@ pipeline {
     agent any
 
     stages {
-        stage('clone') {
+        stage('Clone') {
             steps {
-                echo 'git branch: 'main', credentialsId: '0313d9f0-8a5c-4846-9b09-9ef0d2dd7952', url: 'https://github.com/Anjyot/Hello_Java.git''
+                script {
+                    echo "Cloning repository from GitHub"
+                    git branch: 'main', credentialsId: '0313d9f0-8a5c-4846-9b09-9ef0d2dd7952', url: 'https://github.com/Anjyot/Hello_Java.git'
+                }
             }
         }
         stage('Compile') {
